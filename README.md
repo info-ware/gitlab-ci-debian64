@@ -1,1 +1,1 @@
-Debian package builder crosscompiling for i386.
+Unified Image for NDK and SDK builds
