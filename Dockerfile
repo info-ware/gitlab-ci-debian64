@@ -9,28 +9,10 @@ RUN apt-get install -y git
 RUN apt-get install -y libasound2-dev libgles2-mesa-dev libboost-all-dev 
 
 RUN mkdir -m 0750 /root/.android
-RUN apt-get install -y --no-install-recommends \
-      bzip2 \
-      curl \
-      git-core \
-      html2text \
-      libc6-i386 \
-      lib32stdc++6 \
-      lib32gcc1 \
-      lib32z1 \
-      unzip \
-      openssh-client \
-      sshpass \
-      lftp \
-      doxygen \
-      doxygen-latex \
-      graphviz \
-      wget \
-      ccache \
-      joe \
-      maven \
-      default-jdk \
-      binutils-i686-linux-gnu
+RUN apt-get install -y bzip2 curl git-core html2text libc6-i386 lib32stdc++6 
+RUN apt-get install -y lib32gcc1 lib32z1 unzip openssh-client sshpass lftp 
+RUN apt-get install -y doxygen doxygen-latex graphviz 
+RUN apt-get install -y wget ccache joe maven default-jdk binutils-i686-linux-gnu
             
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
