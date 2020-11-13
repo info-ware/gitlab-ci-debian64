@@ -31,7 +31,7 @@ ENV ANDROID_NDK_HOME=/opt/android-ndk
 # download
 RUN mkdir /opt/android-ndk-tmp
 RUN cd /opt/android-ndk-tmp
-RUN wget  https://dl.google.com/android/repository/android-ndk-${ANDROID_NDK_VERSION
+RUN wget  https://dl.google.com/android/repository/android-ndk-${ANDROID_NDK_VERSION}
 # uncompress
 RUN unzip android-ndk-${ANDROID_NDK_VERSION}-linux-x86_64.zip
 # move to its final location
