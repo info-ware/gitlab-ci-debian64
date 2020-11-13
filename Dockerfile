@@ -72,6 +72,8 @@ RUN yes | ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --licenses --sdk_root=/sd
 # --- Finishing touch
 # ------------------------------------------------------
 
+
+RUN mkdir /scripts
 ADD scripts/get-release-notes.sh /scripts
 RUN chmod +x /scripts/get-release-notes.sh
 
