@@ -45,13 +45,14 @@ RUN rm -rf /opt/android-ndk-tmp
 # --- Android SDK
 # ------------------------------------------------------
 # must be updated in case of new versions set 
-ENV VERSION_SDK_TOOLS="4333796"
-#ENV VERSION_SDK_TOOLS=6858069
+#ENV VERSION_SDK_TOOLS="4333796"
+ENV VERSION_SDK_TOOLS=6858069
 ENV ANDROID_HOME="/sdk"
 ENV ANDROID_SDK_ROOT="/sdk"
 
 RUN rm -rf /sdk
 RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip  -O sdk.zip 
+#RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip  -O sdk.zip 
 RUN unzip sdk.zip -d /sdk 
 RUN rm -v sdk.zip
 
