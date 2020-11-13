@@ -14,11 +14,13 @@ RUN apt-get install -y lib32gcc1 lib32z1 unzip openssh-client sshpass lftp
 RUN apt-get install -y doxygen doxygen-latex graphviz 
 RUN apt-get install -y wget ccache joe maven default-jdk binutils-i686-linux-gnu
             
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 # Correction needed for java certificates
 RUN dpkg --purge --force-depends ca-certificates-java
-#RUN apt-get install ca-certificates-java
+RUN apt-get install -y ca-certificates-java
+
+# clean up
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 # add ccache to PATH
 ENV PATH /usr/lib/ccache:${PATH}
