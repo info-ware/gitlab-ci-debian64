@@ -72,6 +72,10 @@ RUN yes | ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --licenses --sdk_root=/sd
 # --- Finishing touch
 # ------------------------------------------------------
 
+ADD scripts/get-release-notes.sh /scripts
+RUN chmod +x /scripts/get-release-notes.sh
+
+
 # add ANDROID_NDK_HOME to PATH
 ENV PATH ${PATH}:${ANDROID_NDK_HOME}
 
