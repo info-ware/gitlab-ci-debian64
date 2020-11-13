@@ -51,8 +51,8 @@ ENV ANDROID_HOME="/sdk"
 ENV ANDROID_SDK_ROOT="/sdk"
 
 RUN rm -rf /sdk
-RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip  -O sdk.zip 
 #RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip  -O sdk.zip 
+RUN wget https://dl.google.com/android/repository/commandlinetools-linux-${VERSION_SDK_TOOLS}_latest.zip -O sdk.zip
 RUN unzip sdk.zip -d /sdk 
 RUN rm -v sdk.zip
 
