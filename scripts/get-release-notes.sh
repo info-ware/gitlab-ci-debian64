@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 PROJECT_DIR=.
 NO_CHANGES_MESSAGE="Apparently nothing was changed. Probably just redeploy."
 DATE_FILE="latest_released_commit_date.txt"
