@@ -22,5 +22,24 @@ RUN apt-get install -y ca-certificates-java
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
+# ------------------------------------------------------
+# --- Android NDK
+
+export ANDROID_NDK_VERSION="r18b"
+export ANDROID_NDK_HOME=/opt/android-ndk
+
+# download
+mkdir /opt/android-ndk-tmp
+cd /opt/android-ndk-tmp
+wget  https://dl.google.com/android/repository/android-ndk-${ANDROID_NDK_VERSION
+# uncompress
+unzip android-ndk-${ANDROID_NDK_VERSION}-linux-x86_64.zip
+# move to its final location
+mv ./android-ndk-${ANDROID_NDK_VERSION} ${ANDROID_NDK_HOME}
+# remove temp dir
+cd ${ANDROID_NDK_HOME}
+rm -rf /opt/android-ndk-tmp
+
+
 # add ccache to PATH
-ENV PATH /usr/lib/ccache:${PATH}
+#ENV PATH /usr/lib/ccache:${PATH}
