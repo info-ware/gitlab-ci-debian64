@@ -17,8 +17,8 @@ RUN apt-get install -y wget ccache joe maven default-jdk binutils-i686-linux-gnu
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Correction needed for java certificates
-#RUN dpkg --purge --force-depends ca-certificates-java
-#RUN apt-get install ca-certificates-java
+RUN dpkg --purge --force-depends ca-certificates-java
+RUN apt-get install ca-certificates-java
 
 # add ccache to PATH
 ENV PATH /usr/lib/ccache:${PATH}
