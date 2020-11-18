@@ -83,3 +83,6 @@ ENV PATH ${PATH}:${ANDROID_NDK_HOME}
 
 # add ccache to PATH
 ENV PATH /usr/lib/ccache:${PATH}
+
+ENV CCACHE_DIR /mnt/ccache
+ENV NDK_CCACHE /usr/bin/ccache
