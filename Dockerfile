@@ -87,7 +87,6 @@ ADD scripts/lint-up.rb /scripts
 ADD scripts/send_ftp.sh /scripts
 
 
-
 # add ANDROID_NDK_HOME to PATH
 ENV PATH ${PATH}:${ANDROID_NDK_HOME}
 
@@ -96,3 +95,5 @@ ENV PATH /usr/lib/ccache:${PATH}
 
 ENV CCACHE_DIR /mnt/ccache
 ENV NDK_CCACHE /usr/bin/ccache
+
+RUN gradle
