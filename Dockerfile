@@ -92,9 +92,9 @@ ENV PATH ${PATH}:${ANDROID_NDK_HOME}
 
 # SETTINGS FOR GRADLE 5.4.1
 ADD https://services.gradle.org/distributions/gradle-5.4.1-all.zip /tmp
-RUN mkdir -p /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5j
-RUN cp /tmp/gradle-5.4.1-all.zip /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5
-RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/gradle-5.4.1/wrapper/dists/gr
+RUN mkdir -p /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
+RUN cp /tmp/gradle-5.4.1-all.zip /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/
+RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
 RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.ok
 RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.lck
 
