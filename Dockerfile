@@ -77,6 +77,16 @@ RUN mkdir /scripts
 ADD scripts/get-release-notes.sh /scripts
 RUN chmod +x /scripts/get-release-notes.sh
 
+ADD scripts/adb-all.sh /scripts
+RUN chmod +x /scripts/adb-all.sh
+
+ADD scripts/compare_files.sh /scripts
+RUN chmod +x /scripts/compare_files.sh
+
+ADD scripts/lint-up.rb /scripts
+ADD scripts/send_ftp.sh /scripts
+
+
 
 # add ANDROID_NDK_HOME to PATH
 ENV PATH ${PATH}:${ANDROID_NDK_HOME}
