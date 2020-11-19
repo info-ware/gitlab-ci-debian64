@@ -90,10 +90,20 @@ ADD scripts/send_ftp.sh /scripts
 # add ANDROID_NDK_HOME to PATH
 ENV PATH ${PATH}:${ANDROID_NDK_HOME}
 
+# SETTINGS FOR GRADLE 5.4.1
+ADD https://services.gradle.org/distributions/gradle-5.4.1-all.zip /tmp
+RUN mkdir -p /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5j
+RUN cp /tmp/gradle-5.4.1-all.zip /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5
+RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/gradle-5.4.1/wrapper/dists/gr
+RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.ok
+RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.lck
+
+ENV GRADLE_USER_HOME=/opt/gradle
+
+
 # add ccache to PATH
 ENV PATH /usr/lib/ccache:${PATH}
 
 ENV CCACHE_DIR /mnt/ccache
 ENV NDK_CCACHE /usr/bin/ccache
 
-RUN gradle
