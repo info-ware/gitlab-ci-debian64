@@ -98,7 +98,8 @@ RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/gradle-5.4.1/wrapper/dists/gr
 RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.ok
 RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.lck
 
-ENV GRADLE_USER_HOME=/opt/gradle/gradle-5.4.1
+#ENV GRADLE_USER_HOME=/opt/gradle/gradle-5.4.1
+ENV GRADLE_USER_HOME=/opt/gradle
 
 
 # add ccache to PATH
