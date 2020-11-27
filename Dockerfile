@@ -12,7 +12,7 @@ RUN mkdir -m 0750 /root/.android
 RUN apt-get install -y bzip2 curl git-core html2text libc6-i386 lib32stdc++6 
 RUN apt-get install -y lib32gcc1 lib32z1 unzip openssh-client sshpass lftp 
 RUN apt-get install -y doxygen doxygen-latex graphviz 
-RUN apt-get install -y wget ccache joe maven default-jdk binutils-i686-linux-gnu
+RUN apt-get install -y wget ccache joe maven default-jdk binutils-i686-linux-gnu libgnutls28-dev
             
 # Correction needed for java certificates
 RUN dpkg --purge --force-depends ca-certificates-java
@@ -97,6 +97,16 @@ RUN cp /tmp/gradle-5.4.1-all.zip /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5
 RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
 RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.ok
 RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.lck
+
+
+# SETTINGS FOR GRADLE 6.7.1
+ADD https://services.gradle.org/distributions/gradle-6.7.1-all.zip /tmp
+RUN mkdir -p /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx
+RUN cp /tmp/gradle-6.7.1-all.zip /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx/
+RUN unzip /tmp/gradle-6.7.1-all.zip -d /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx
+RUN touch /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx/gradle-6.7.1-all.ok
+RUN touch /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx/gradle-6.7.1-all.lck
+
 
 #ENV GRADLE_USER_HOME=/opt/gradle/gradle-5.4.1
 ENV GRADLE_USER_HOME=/opt/gradle
