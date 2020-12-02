@@ -13,6 +13,7 @@ RUN apt-get install -y bzip2 curl git-core html2text libc6-i386 lib32stdc++6
 RUN apt-get install -y lib32gcc1 lib32z1 unzip openssh-client sshpass lftp 
 RUN apt-get install -y doxygen doxygen-latex graphviz 
 RUN apt-get install -y wget ccache joe maven default-jdk binutils-i686-linux-gnu libgnutls28-dev
+RUN apt-get install -y adb 
             
 # Correction needed for java certificates
 RUN dpkg --purge --force-depends ca-certificates-java
@@ -31,14 +32,14 @@ ENV ANDROID_NDK_HOME=/opt/android-ndk
 
 # download
 RUN mkdir /opt/android-ndk-tmp
-RUN cd /opt/android-ndk-tmp
+WORKDIR /opt/android-ndk-tmp
 RUN wget  https://dl.google.com/android/repository/android-ndk-${ANDROID_NDK_VERSION}-linux-x86_64.zip
+
 # uncompress
 RUN unzip android-ndk-${ANDROID_NDK_VERSION}-linux-x86_64.zip
 # move to its final location
 RUN mv ./android-ndk-${ANDROID_NDK_VERSION} ${ANDROID_NDK_HOME}
 # remove temp dir
-RUN cd ${ANDROID_NDK_HOME}
 RUN rm -rf /opt/android-ndk-tmp
 
 # ------------------------------------------------------
@@ -91,29 +92,28 @@ ADD scripts/send_ftp.sh /scripts
 ENV PATH ${PATH}:${ANDROID_NDK_HOME}
 
 # SETTINGS FOR GRADLE 5.4.1
-ADD https://services.gradle.org/distributions/gradle-5.4.1-all.zip /tmp
-RUN mkdir -p /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
-RUN cp /tmp/gradle-5.4.1-all.zip /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/
-RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
-RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.ok
-RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.lck
+ADD https://services.gradle.org/distributions/gradle-5.4.1-bin.zip /tmp
+RUN unzip /tmp/gradle-5.4.1-bin.zip -d /opt/gradle/
 
-
-# SETTINGS FOR GRADLE 6.7.1
-ADD https://services.gradle.org/distributions/gradle-6.7.1-all.zip /tmp
-RUN mkdir -p /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx
-RUN cp /tmp/gradle-6.7.1-all.zip /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx/
-RUN unzip /tmp/gradle-6.7.1-all.zip -d /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx
-RUN touch /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx/gradle-6.7.1-all.ok
-RUN touch /opt/gradle/gradle-6.7.1/wrapper/dists/gradle-6.7.1-all/3221gyojl5jsh0helicew7rwx/gradle-6.7.1-all.lck
-
+# SETTINGS FOR GRADLE 6.7
+#ADD https://services.gradle.org/distributions/gradle-6.7-all.zip /tmp
+#RUN unzip /tmp/gradle-6.7-all.zip -d /opt/gradle/
 
 #ENV GRADLE_USER_HOME=/opt/gradle/gradle-5.4.1
-ENV GRADLE_USER_HOME=/opt/gradle
-
+ENV GRADLE_HOME=/opt/gradle/gradle-5.4.1/bin
 
 # add ccache to PATH
-ENV PATH /usr/lib/ccache:${PATH}
+ENV PATH=/usr/lib/ccache:${GRADLE_HOME}:${PATH}
+
+RUN mkdir /tmp/dummy
+WORKDIR /tmp/dummy
+
+RUN echo "1" | gradle init --type basic  --project-name wrap
+RUN gradle wrapper
+RUN ./gradlew --version
+RUN rm -rf /tmp/dummy
+
+WORKDIR /tmp
 
 ENV CCACHE_DIR /mnt/ccache
 ENV NDK_CCACHE /usr/bin/ccache
