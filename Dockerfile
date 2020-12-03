@@ -52,7 +52,6 @@ ENV ANDROID_HOME="/sdk"
 ENV ANDROID_SDK_ROOT="/sdk"
 
 RUN rm -rf /sdk
-#RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip  -O sdk.zip 
 RUN wget https://dl.google.com/android/repository/commandlinetools-linux-${VERSION_SDK_TOOLS}_latest.zip -O sdk.zip
 RUN unzip sdk.zip -d /sdk 
 RUN rm -v sdk.zip
@@ -63,10 +62,10 @@ ADD packages.txt /sdk
 
 RUN mkdir -p /root/.android && touch /root/.android/repositories.cfg && ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --update --sdk_root=/sdk 
 
-RUN while read -r package; do PACKAGES="${PACKAGES}${package} "; done < /sdk/packages.txt && ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager ${PACKAGES} --sdk_root=/sdk
-
 # accept all licences
 RUN yes | ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --licenses --sdk_root=/sdk
+
+RUN ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --package_file=/sdk/packages.txt --sdk_root=/sdk
 
 
 # ------------------------------------------------------
@@ -96,24 +95,13 @@ ADD https://services.gradle.org/distributions/gradle-5.4.1-bin.zip /tmp
 RUN unzip /tmp/gradle-5.4.1-bin.zip -d /opt/gradle/
 
 # SETTINGS FOR GRADLE 6.7
-#ADD https://services.gradle.org/distributions/gradle-6.7-all.zip /tmp
-#RUN unzip /tmp/gradle-6.7-all.zip -d /opt/gradle/
+ADD https://services.gradle.org/distributions/gradle-6.7-bin.zip /tmp
+RUN unzip /tmp/gradle-6.7-all.zip -d /opt/gradle/
 
-#ENV GRADLE_USER_HOME=/opt/gradle/gradle-5.4.1
 ENV GRADLE_HOME=/opt/gradle/gradle-5.4.1/bin
 
 # add ccache to PATH
 ENV PATH=/usr/lib/ccache:${GRADLE_HOME}:${PATH}
-
-RUN mkdir /tmp/dummy
-WORKDIR /tmp/dummy
-
-RUN echo "1" | gradle init --type basic  --project-name wrap
-RUN gradle wrapper
-RUN ./gradlew --version
-RUN rm -rf /tmp/dummy
-
-WORKDIR /tmp
 
 ENV CCACHE_DIR /mnt/ccache
 ENV NDK_CCACHE /usr/bin/ccache
