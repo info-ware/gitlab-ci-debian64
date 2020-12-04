@@ -83,12 +83,12 @@ ADD scripts/send_ftp.sh /scripts
 ENV PATH ${PATH}:${ANDROID_NDK_HOME}
 
 # SETTINGS FOR GRADLE 5.4.1
-ADD https://downloads.gradle-dn.com/distributions/gradle-5.4.1-bin.zip /tmp
-RUN mkdir -p /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2xm
-RUN cp /tmp/gradle-5.4.1-bin.zip /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2xm/
-RUN unzip /tmp/gradle-5.4.1-bin.zip -d /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2xm
-RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2xm/gradle-5.4.1-bin.ok
-RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2xm/gradle-5.4.1-bin.lck
+ADD https://downloads.gradle-dn.com/distributions/gradle-5.4.1-all.zip /tmp
+RUN mkdir -p /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
+RUN cp /tmp/gradle-5.4.1-all.zip /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/
+RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
+RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.ok
+RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.lck
 
 # SETTINGS FOR GRADLE 6.7
 ADD https://downloads.gradle-dn.com/distributions/gradle-6.7-bin.zip /tmp
