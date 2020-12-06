@@ -84,19 +84,27 @@ ENV PATH ${PATH}:${ANDROID_NDK_HOME}
 
 # SETTINGS FOR GRADLE 5.4.1
 ADD https://downloads.gradle-dn.com/distributions/gradle-5.4.1-all.zip /tmp
-RUN mkdir -p /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
-RUN cp /tmp/gradle-5.4.1-all.zip /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/
-RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
-RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.ok
-RUN touch /opt/gradle/gradle-5.4.1/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.lck
+RUN mkdir -p /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
+RUN cp /tmp/gradle-5.4.1-all.zip /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/
+RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
+RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.ok
+RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.lck
+
+ADD https://downloads.gradle-dn.com/distributions/gradle-5.4.1-bin.zip /tmp
+RUN mkdir -p /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x
+RUN cp /tmp/gradle-5.4.1-bin.zip /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x/
+RUN unzip /tmp/gradle-5.4.1-bin.zip -d /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x
+RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x/gradle-5.4.1-bin.ok
+RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x/gradle-5.4.1-bin.lck
+
 
 # SETTINGS FOR GRADLE 6.7
 ADD https://downloads.gradle-dn.com/distributions/gradle-6.7-bin.zip /tmp
-RUN mkdir -p /opt/gradle/gradle-6.7/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv
-RUN cp /tmp/gradle-6.7-bin.zip /opt/gradle/gradle-6.7/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv/
-RUN unzip /tmp/gradle-6.7-bin.zip -d /opt/gradle/gradle-6.7/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv
-RUN touch /opt/gradle/gradle-6.7/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv/gradle-6.7-bin.ok
-RUN touch /opt/gradle/gradle-6.7/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv/gradle-6.7-bin.lck
+RUN mkdir -p /opt/gradle/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv
+RUN cp /tmp/gradle-6.7-bin.zip /opt/gradle/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv/
+RUN unzip /tmp/gradle-6.7-bin.zip -d /opt/gradle/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv
+RUN touch /opt/gradle/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv/gradle-6.7-bin.ok
+RUN touch /opt/gradle/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv/gradle-6.7-bin.lck
 
 ENV GRADLE_HOME=/opt/gradle/gradle-5.4.1/bin
 
