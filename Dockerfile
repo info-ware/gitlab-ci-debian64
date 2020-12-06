@@ -89,6 +89,7 @@ RUN cp /tmp/gradle-5.4.1-all.zip /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221
 RUN unzip /tmp/gradle-5.4.1-all.zip -d /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx
 RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.ok
 RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.lck
+RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-all/3221gyojl5jsh0helicew7rwx/gradle-5.4.1-all.zip.lck 
 
 ADD https://downloads.gradle-dn.com/distributions/gradle-5.4.1-bin.zip /tmp
 RUN mkdir -p /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x
@@ -96,6 +97,7 @@ RUN cp /tmp/gradle-5.4.1-bin.zip /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75i
 RUN unzip /tmp/gradle-5.4.1-bin.zip -d /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x
 RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x/gradle-5.4.1-bin.ok
 RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x/gradle-5.4.1-bin.lck
+RUN touch /opt/gradle/wrapper/dists/gradle-5.4.1-bin/e75iq110yv9r9wt1a6619x2x/gradle-5.4.1-bin.zip.lck
 
 
 # SETTINGS FOR GRADLE 6.7
