@@ -108,6 +108,14 @@ RUN unzip /tmp/gradle-6.7-bin.zip -d /opt/gradle/wrapper/dists/gradle-6.7-bin/ef
 RUN touch /opt/gradle/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv/gradle-6.7-bin.ok
 RUN touch /opt/gradle/wrapper/dists/gradle-6.7-bin/efvqh8uyq79v2n7rcncuhu9sv/gradle-6.7-bin.lck
 
+# SETTINGS FOR GRADLE 6.7.1
+ADD https://downloads.gradle-dn.com/distributions/gradle-6.7.1-bin.zip /tmp
+RUN mkdir -p /opt/gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6
+RUN cp /tmp/gradle-6.7.1-bin.zip /opt/gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6/
+RUN unzip /tmp/gradle-6.7.1-bin.zip -d /opt/gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6
+RUN touch /opt/gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6/gradle-6.7.1-bin.ok
+RUN touch /opt/gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6/gradle-6.7.1-bin.lck
+
 ENV GRADLE_HOME=/opt/gradle/gradle-5.4.1/bin
 
 # add ccache to PATH
