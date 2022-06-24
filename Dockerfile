@@ -5,6 +5,7 @@ RUN apt-get install -y build-essential devscripts cmake gcc g++ debhelper dh-sys
 RUN apt-get install -y git libasound2-dev libgles2-mesa-dev libboost-all-dev bzip2 curl git-core html2text libc6-i386 lib32stdc++6 lib32gcc1 lib32z1 unzip openssh-client sshpass lftp 
 RUN apt-get install -y doxygen doxygen-latex graphviz wget ccache joe maven default-jdk binutils-i686-linux-gnu libgnutls28-dev adb 
 RUN apt-get install -y qtbase5-dev
+RUN apt-get install -y python3-pip
 
 RUN mkdir -m 0750 /root/.android
             
@@ -118,6 +119,13 @@ RUN touch /opt/gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6/g
 RUN touch /opt/gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6/gradle-6.7.1-bin.lck
 
 ENV GRADLE_HOME=/opt/gradle/gradle-5.4.1/bin
+
+# install selenium + chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt install ./google-chrome-stable_current_amd64.deb
+RUN python3 -m pip install --upgrade pip
+RUN pip install selenium
+
 
 # add ccache to PATH
 ENV PATH=/usr/lib/ccache:${GRADLE_HOME}:${PATH}
