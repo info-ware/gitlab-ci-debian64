@@ -118,6 +118,14 @@ RUN unzip /tmp/gradle-6.7.1-bin.zip -d /opt/gradle/wrapper/dists/gradle-6.7.1-bi
 RUN touch /opt/gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6/gradle-6.7.1-bin.ok
 RUN touch /opt/gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6/gradle-6.7.1-bin.lck
 
+# SETTINGS FOR GRADLE 7.2
+ADD https://services.gradle.org/distributions/gradle-7.2-bin.zip /tmp
+RUN mkdir -p /opt/gradle/wrapper/dists/gradle-7.2-bin/2dnblmf4td7x66yl1d74lt32g
+RUN cp /tmp/gradle-7.2-bin.zip /opt/gradle/wrapper/dists/gradle-7.2-bin/2dnblmf4td7x66yl1d74lt32g
+RUN unzip /tmp/gradle-7.2-bin.zip -d /opt/gradle/wrapper/dists/gradle-7.2-bin/2dnblmf4td7x66yl1d74lt32g
+RUN touch /opt/gradle/wrapper/dists/gradle-7.2-bin/2dnblmf4td7x66yl1d74lt32g/gradle-7.2-bin.ok
+RUN touch /opt/gradle/wrapper/dists/gradle-7.2-bin/2dnblmf4td7x66yl1d74lt32g/gradle-7.2-bin.lck
+
 ENV GRADLE_HOME=/opt/gradle/gradle-5.4.1/bin
 
 # install selenium + chrome
