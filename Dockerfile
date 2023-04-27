@@ -6,6 +6,7 @@ RUN apt-get install -y git libasound2-dev libgles2-mesa-dev libboost-all-dev bzi
 RUN apt-get install -y doxygen doxygen-latex graphviz wget ccache joe maven default-jdk binutils-i686-linux-gnu libgnutls28-dev adb libcurl4-gnutls-dev
 RUN apt-get install -y qtbase5-dev
 RUN apt-get install -y python3-pip
+RUN apt-get install -y uuid-dev
 
 RUN mkdir -m 0750 /root/.android
             
