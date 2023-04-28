@@ -130,8 +130,8 @@ RUN touch /opt/gradle/wrapper/dists/gradle-7.2-bin/2dnblmf4td7x66yl1d74lt32g/gra
 ENV GRADLE_HOME=/opt/gradle/gradle-5.4.1/bin
 
 # install selenium + chrome
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN apt install ./google-chrome-stable_current_amd64.deb
+#RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#RUN apt install ./google-chrome-stable_current_amd64.deb
 RUN python3 -m pip install --upgrade pip
 RUN pip install selenium
 
