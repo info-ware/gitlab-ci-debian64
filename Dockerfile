@@ -141,4 +141,3 @@ ENV PATH=/usr/lib/ccache:${GRADLE_HOME}:${PATH}
 
 ENV CCACHE_DIR /mnt/ccache
 ENV NDK_CCACHE /usr/bin/ccache
-
