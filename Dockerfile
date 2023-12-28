@@ -2,7 +2,8 @@ FROM debian:buster
 
 RUN apt-get update 
 RUN apt-get install -y build-essential devscripts cmake gcc g++ debhelper dh-systemd dh-exec pkg-config libtool autoconf
-RUN apt-get install -y git libasound2-dev libgles2-mesa-dev libboost-all-dev bzip2 curl git-core html2text libc6-i386 lib32stdc++6 lib32gcc1 lib32z1 unzip openssh-client sshpass lftp 
+RUN apt-get install -y git libasound2-dev libgles2-mesa-dev libboost-all-dev bzip2 curl git-core html2text libc6-i386 libc6-dev-i386
+RUN apt-get install -y lib32stdc++6 lib32gcc1 lib32z1 unzip openssh-client sshpass lftp 
 RUN apt-get install -y doxygen doxygen-latex graphviz wget ccache rsync joe 
 RUN apt-get install -y maven default-jdk binutils-i686-linux-gnu 
 RUN apt-get install -y libgnutls28-dev adb libcurl4-gnutls-dev
