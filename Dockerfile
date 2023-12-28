@@ -7,6 +7,7 @@ RUN apt-get install -y doxygen doxygen-latex graphviz wget ccache joe maven defa
 RUN apt-get install -y qtbase5-dev
 RUN apt-get install -y python3-pip
 RUN apt-get install -y uuid-dev
+RUN apt-get install -y zlib1g-dev
 #RUN apt-get install -y rsync
 
 
