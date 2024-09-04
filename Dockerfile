@@ -132,7 +132,23 @@ RUN unzip /tmp/gradle-7.2-bin.zip -d /opt/gradle/wrapper/dists/gradle-7.2-bin/2d
 RUN touch /opt/gradle/wrapper/dists/gradle-7.2-bin/2dnblmf4td7x66yl1d74lt32g/gradle-7.2-bin.ok
 RUN touch /opt/gradle/wrapper/dists/gradle-7.2-bin/2dnblmf4td7x66yl1d74lt32g/gradle-7.2-bin.lck
 
-ENV GRADLE_HOME=/opt/gradle/gradle-5.4.1/bin
+# SETTINGS FOR GRADLE 7.6
+ADD https://services.gradle.org/distributions/gradle-7.6-bin.zip /tmp
+RUN mkdir -p /opt/gradle/wrapper/dists/gradle-7.6-bin/9l9tetv7ltxvx3i8an4pb86ye
+RUN cp /tmp/gradle-7.6-bin.zip /opt/gradle/wrapper/dists/gradle-7.6-bin/9l9tetv7ltxvx3i8an4pb86ye
+RUN unzip /tmp/gradle-7.6-bin.zip -d /opt/gradle/wrapper/dists/gradle-7.6-bin/9l9tetv7ltxvx3i8an4pb86ye
+RUN touch /opt/gradle/wrapper/dists/gradle-7.6-bin/9l9tetv7ltxvx3i8an4pb86ye/gradle-7.6-bin.ok
+RUN touch /opt/gradle/wrapper/dists/gradle-7.6-bin/9l9tetv7ltxvx3i8an4pb86ye/gradle-7.6-bin.lck
+
+# SETTINGS FOR GRADLE 8.7
+ADD https://services.gradle.org/distributions/gradle-8.7-bin.zip /tmp
+RUN mkdir -p /opt/gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu
+RUN cp /tmp/gradle-8.7-bin.zip /opt/gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu
+RUN unzip /tmp/gradle-8.7-bin.zip -d /opt/gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu
+RUN touch /opt/gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu/gradle-8.7-bin.ok
+RUN touch /opt/gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu/gradle-8.7-bin.lck
+
+ENV GRADLE_HOME=/opt/gradle/gradle-8.7/bin
 
 # install selenium + chrome
 #RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
