@@ -148,7 +148,15 @@ RUN unzip /tmp/gradle-8.7-bin.zip -d /opt/gradle/wrapper/dists/gradle-8.7-bin/bh
 RUN touch /opt/gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu/gradle-8.7-bin.ok
 RUN touch /opt/gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu/gradle-8.7-bin.lck
 
-ENV GRADLE_HOME=/opt/gradle/gradle-8.7/bin
+# SETTINGS FOR GRADLE 8.9
+ADD https://services.gradle.org/distributions/gradle-8.9-bin.zip /tmp
+RUN mkdir -p /opt/gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a
+RUN cp /tmp/gradle-8.9-bin.zip /opt/gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a
+RUN unzip /tmp/gradle-8.9-bin.zip -d /opt/gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a
+RUN touch /opt/gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9-bin.ok
+RUN touch /opt/gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9-bin.lck
+
+ENV GRADLE_HOME=/opt/gradle/gradle-8.9/bin
 
 # install selenium + chrome
 #RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -162,3 +170,8 @@ ENV PATH=/usr/lib/ccache:${GRADLE_HOME}:${PATH}
 
 ENV CCACHE_DIR /mnt/ccache
 ENV NDK_CCACHE /usr/bin/ccache
+
+# ------------------------------------------------------
+# --- SENTRY CLI
+# ------------------------------------------------------
+RUN curl -sL https://sentry.io/get-cli/ | sh
